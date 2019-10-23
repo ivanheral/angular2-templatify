@@ -1,6 +1,6 @@
 {
   "name": "angular2-templatify",
-  "version": "0.9.2",
+  "version": "0.9.4",
   "description": "A simple Browserify v2 transform for adding all html and style's in angular components.",
   "main": "index.js",
   "files": [

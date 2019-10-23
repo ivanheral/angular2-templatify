@@ -5,8 +5,8 @@ module.exports = function (file, opts) {
   opts = opts || {};
   var code = "";
 
-  var templateUrlRegex = /templateUrl *:(\s*['"`](.*?)['"`]\s*([,}]))/gm;
-  var stylesRegex = /styleUrls *:(\s*\[[^\]]*?\])/g;
+  var templateUrlRegex = /template *:(\s*['"`](.*?)['"`]\s*([,}]))/gm;
+  var stylesRegex = /styles *:(\s*\[[^\]]*?\])/g;
   var stringRegex = /(['`"])((?:[^\\]\\\1|.)*?)\1/g;
 
   function replaceStringsWithRequires(string) {
