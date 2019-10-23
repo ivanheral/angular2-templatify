@@ -5,8 +5,8 @@ module.exports = function (file, opts) {
   opts = opts || {};
   var code = "";
 
-  var templateUrlRegex = /template *:(\s*['"`](.*?)['"`]\s*([,}]))/gm;
-  var stylesRegex = /styles *:(\s*\[[^\]]*?\])/g;
+  var templateUrlRegex = /templateUrl *:(\s*['"`](.*?)['"`]\s*([,}]))/gm;
+  var stylesRegex = /styleUrls *:(\s*\[[^\]]*?\])/g;
   var stringRegex = /(['`"])((?:[^\\]\\\1|.)*?)\1/g;
 
   function replaceStringsWithRequires(string) {
@@ -15,9 +15,6 @@ module.exports = function (file, opts) {
     });
   }
 
-  var styleProperty = 'styles';
-  var templateProperty = 'template';
-
   return through(
     function (buf, enc, next) {
       code += buf.toString("utf8");
@@ -25,10 +22,10 @@ module.exports = function (file, opts) {
     },
     function (next) {
       code = code.replace(templateUrlRegex, function (match, url) {
-          return templateProperty + ":" + replaceStringsWithRequires(url);
+          return `template:${replaceStringsWithRequires(url)}`;
         })
         .replace(stylesRegex, function (match, urls) {
-          return styleProperty + ":" + replaceStringsWithRequires(urls);
+          return `styles:${replaceStringsWithRequires(urls)}`;
         });
       this.push(new Buffer(code))
       next();
