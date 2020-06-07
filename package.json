@@ -1,6 +1,6 @@
 {
   "name": "angular2-templatify",
-  "version": "0.9.5",
+  "version": "1.0.0",
   "description": "A simple Browserify v2 transform for adding all html and style's in angular components.",
   "main": "index.js",
   "files": [
@@ -10,6 +10,7 @@
   "license": "MIT",
   "keywords": [
     "angular2-templatify",
+    "@angular",
     "browserify"
   ],
   "repository": {
@@ -20,9 +21,9 @@
     "through2": "^3.0.1"
   },
   "devDependencies": {
-    "browserify": "~16.2.3"
+    "browserify": "~16.5.1"
   },
   "engines": {
-    "node": ">= 6"
+    "node": ">= 12"
   }
 }
